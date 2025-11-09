@@ -130,3 +130,85 @@ footer { text-align: center; padding: 42px 20px; color: #bbb; }
 /* DOWNLOAD BUTTON */
 .download-btn { margin-top: 18px; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-weight: 900; display: inline-block; }
 .download-btn:active { transform: scale(0.98); }
+
+/* === GLOBAL SECTION GLOW EFFECT (TUNED VERSION) === */
+section {
+  position: relative;
+  background: rgba(10, 15, 30, 0.88);
+  border: 1px solid rgba(0, 200, 255, 0.15);
+  border-radius: 14px;
+  padding: 48px 32px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow:
+    0 0 14px rgba(0, 200, 255, 0.15),
+    inset 0 0 14px rgba(0, 200, 255, 0.05);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Hover glow (dark mode) */
+section:hover {
+  border-color: rgba(0, 200, 255, 0.7);
+  box-shadow:
+    0 0 28px rgba(0, 200, 255, 0.5),
+    0 0 50px rgba(0, 200, 255, 0.2),
+    inset 0 0 20px rgba(0, 200, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Mouse-tracked glow aura */
+section::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.3), transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+section:hover::before {
+  opacity: 1;
+}
+
+/* Keep content above glow */
+section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Light Mode Enhancements ===== */
+[data-theme="light"] section {
+  background: rgba(250, 250, 255, 0.95);
+  border-color: rgba(0, 110, 255, 0.25);
+  box-shadow:
+    0 0 18px rgba(0, 110, 255, 0.22),
+    inset 0 0 12px rgba(0, 110, 255, 0.08);
+}
+
+[data-theme="light"] section:hover {
+  border-color: rgba(0, 110, 255, 1);
+  box-shadow:
+    0 0 28px rgba(0, 110, 255, 0.65),
+    0 0 70px rgba(0, 110, 255, 0.3),
+    inset 0 0 24px rgba(0, 110, 255, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Stronger, visible blue aura in bright mode */
+[data-theme="light"] section::before {
+  background: radial-gradient(
+    circle,
+    rgba(0, 110, 255, 0.45) 0%,
+    rgba(0, 110, 255, 0.15) 50%,
+    transparent 80%
+  );
+}
