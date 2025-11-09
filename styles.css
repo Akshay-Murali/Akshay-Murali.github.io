@@ -1,3 +1,40 @@
+/* === GLOBAL FONT SETUP === */
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Adjust font weights for specific elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+p, li, a, span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Slightly lighter heading spacing */
+h1, h2 {
+  letter-spacing: 0.5px;
+}
+
+/* Subtle gradient title styling (like your accent blue) */
+h2 {
+  background: linear-gradient(90deg, #0099ff, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 :root {
   --accent: #1a73e8;
   --accent-glow: rgba(26,115,232,0.45);
@@ -93,16 +130,41 @@ header { padding: 140px 20px 80px; text-align: center; position: relative; overf
 /* PROFILE */
 .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
 
-/* TYPEWRITER */
-.typewriter { display: inline-block; font-size: 22px; font-weight: 800; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; width: 0; animation: typing 3.5s steps(38) forwards, blink .75s step-end infinite; }
-@keyframes typing { to { width: 100%; } }
-@keyframes blink { 50% { border-color: transparent; } }
+/* === TYPEWRITER EFFECT — FINAL STABLE VERSION === */
+/* === DYNAMIC TYPEWRITER TEXT === */
+/* === MULTICOLOR TYPEWRITER EFFECT === */
+.typewriter {
+  font-size: 22px;
+  font-weight: 800;
+  display: inline-block;
+  border-right: 3px solid var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 0.7s step-end infinite;
+  transition: color 0.4s ease;
+}
 
-.motto { text-align: center; margin-top: 16px; font-size: 20px; font-weight: 800; opacity: 0; animation: fadeSlide 2s ease forwards; animation-delay: 3.6s; letter-spacing: 0.5px; }
-@keyframes fadeSlide { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+/* Cursor blink */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
-section { max-width: 980px; margin: auto; padding: 48px 20px; }
-h2 { font-size: 28px; border-left: 7px solid var(--accent); padding-left: 12px; margin: 0 0 18px; }
+/* Color variations (we’ll swap these from JS) */
+.color-analyst { color: #00aaff; }     /* Bright Blue */
+.color-dev { color: #00ffc8; }         /* Cyan */
+.color-edu { color: #ff7bff; }         /* Pink */
+.color-sys { color: #ffd700; }         /* Gold */
+
+/* Maintain layout space below */
+header p {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+[data-theme="dark"] .typewriter {
+  border-color: #00b4ff;
+}
+
 
 /* GLASS CARDS */
 .card { position: relative; backdrop-filter: blur(16px); background: var(--glass-light); padding: 24px; margin: 22px 0; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: 0.4s; }
@@ -131,7 +193,7 @@ footer { text-align: center; padding: 42px 20px; color: #bbb; }
 .download-btn { margin-top: 18px; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-weight: 900; display: inline-block; }
 .download-btn:active { transform: scale(0.98); }
 
-/* === GLOBAL SECTION GLOW EFFECT (TUNED VERSION) === */
+/* === GLOBAL SECTION GLOW EFFECT — CLEAN VERSION === */
 section {
   position: relative;
   background: rgba(10, 15, 30, 0.88);
@@ -159,33 +221,18 @@ section:hover {
   transform: translateY(-3px);
 }
 
-/* Mouse-tracked glow aura */
+/* Removed the mouse-tracking glow aura */
 section::before {
-  content: "";
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(0, 200, 255, 0.3), transparent 70%);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 0;
+  content: none;
 }
 
-section:hover::before {
-  opacity: 1;
-}
-
-/* Keep content above glow */
+/* Keep content above background layers */
 section > * {
   position: relative;
   z-index: 2;
 }
 
-/* ===== Light Mode Enhancements ===== */
+/* ===== Light Mode with Animated Glow ===== */
 [data-theme="light"] section {
   background: rgba(250, 250, 255, 0.95);
   border-color: rgba(0, 110, 255, 0.25);
@@ -194,6 +241,7 @@ section > * {
     inset 0 0 12px rgba(0, 110, 255, 0.08);
 }
 
+/* Light mode hover — brighter blue */
 [data-theme="light"] section:hover {
   border-color: rgba(0, 110, 255, 1);
   box-shadow:
@@ -203,12 +251,29 @@ section > * {
   transform: translateY(-3px);
 }
 
-/* Stronger, visible blue aura in bright mode */
-[data-theme="light"] section::before {
-  background: radial-gradient(
-    circle,
-    rgba(0, 110, 255, 0.45) 0%,
-    rgba(0, 110, 255, 0.15) 50%,
-    transparent 80%
-  );
+/* Light mode animated hue shift for elegance */
+[data-theme="light"] section:hover {
+  animation: glowShift 6s ease-in-out infinite alternate;
 }
+
+@keyframes glowShift {
+  0% {
+    box-shadow:
+      0 0 28px rgba(0, 110, 255, 0.6),
+      0 0 70px rgba(0, 160, 255, 0.25),
+      inset 0 0 20px rgba(0, 110, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 32px rgba(0, 140, 255, 0.75),
+      0 0 80px rgba(0, 200, 255, 0.35),
+      inset 0 0 24px rgba(0, 140, 255, 0.15);
+  }
+  100% {
+    box-shadow:
+      0 0 26px rgba(0, 110, 255, 0.55),
+      0 0 60px rgba(0, 160, 255, 0.2),
+      inset 0 0 18px rgba(0, 110, 255, 0.1);
+  }
+}
+
