@@ -26,6 +26,38 @@ nav {
 }
 [data-theme="dark"] nav { background: var(--glass-dark); border-bottom: 1px solid rgba(255,255,255,0.12); }
 
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.theme-toggle:hover {
+  background: white;
+  color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+[data-theme="dark"] .theme-toggle {
+  background: var(--bg-dark);
+  border: 2px solid white;
+  color: #ffdc00; /* bright sun color */
+}
+[data-theme="dark"] .theme-toggle:hover {
+  background: #222;
+  color: white;
+}
+
+
 .logo {
   font-size: 24px; font-weight: 900; letter-spacing: 1.5px;
   background: linear-gradient(90deg, #1a73e8, #6ab1ff, #0077ff);

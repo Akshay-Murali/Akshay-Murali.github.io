@@ -1,11 +1,15 @@
 // Theme toggle
-const btn = document.getElementById('toggleTheme');
+// Theme toggle with icon
+const themeBtn = document.getElementById('themeToggle');
+const themeIcon = themeBtn.querySelector('.icon');
 const html = document.documentElement;
-btn.addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  html.setAttribute('data-theme', next);
-  btn.textContent = next === 'light' ? 'Dark' : 'Light';
+
+themeBtn.addEventListener('click', () => {
+  const nextTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', nextTheme);
+  themeIcon.textContent = nextTheme === 'light' ? '🌞' : '🌙';
 });
+
 
 // Mobile panel
 const menuBtn = document.getElementById('menuBtn');
