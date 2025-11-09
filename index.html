@@ -1,424 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-    <style>
-      .details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  text-align: center;
-  cursor: pointer; 
-  transition: transform 0.3s ease; 
-}
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshay Puthanmari Murali – Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="logo" aria-label="Akshay logo Primary">
+      <a href="#" style="text-decoration:none; color:inherit;">ॐ AKSHAY</a>
+    </div>
+    <div class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#exp">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div class="mobile-menu-btn" id="menuBtn" aria-label="Open menu" role="button">☰</div>
+      <button id="toggleTheme" aria-label="Toggle theme">Dark</button>
+    </div>
+  </nav>
 
-.details-container:hover {
-  transform: scale(1.05); 
-}
-    </style>
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <!--<div class="logo">Akshay Puthanmari Murali</div> -->
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <!--<div class="logo"><a href="#profile" onclick="toggleMenu()">Akshay's webpage</a></div> -->
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#exp">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <header>
+    <div class="aura" aria-hidden="true"></div>
+    <img src="assets/CPP.png" class="profile-img" alt="Akshay profile">
+    <h1>Akshay Puthanmari Murali</h1>
+    <p class="typewriter">Business Analyst • Developer • Educator • Systems Builder</p>
+    <p class="motto">Clarity. Precision. Transformation.</p>
+    <a class="download-btn" href="assets/Akshay_CV_8-13-2025.pdf" download>Download Resume</a>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I build systems that simplify decisions. Dashboards, pipelines, ML models, workflow automation, and foundational teaching — all with clarity and power.</p>
+      <p>My personality blends Athena’s wisdom, Poseidon’s power, and Shiva’s discipline — guiding how I think, build, and teach.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <div class="skill-grid">
+        <div>
+          <div class="skill-bar"><div class="skill-label">Python</div><div class="bar"><div class="bar-fill" data-level="92"></div></div></div>
+          <div class="skill-bar"><div class="skill-label">SQL</div><div class="bar"><div class="bar-fill" data-level="88"></div></div></div>
+          <div class="skill-bar"><div class="skill-label">Power BI</div><div class="bar"><div class="bar-fill" data-level="90"></div></div></div>
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="assets/CPP.png" alt="My profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Akshay Puthanmari Murali</h1>
-        <p class="section__text__p2"> Lecturer / Analyst / Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Akshay_CV_8-13-2025.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://linkedin.com/in/akputh/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Akshay-Murali'"
-          />
+        <div>
+          <div class="skill-bar"><div class="skill-label">Excel / Power Query</div><div class="bar"><div class="bar-fill" data-level="95"></div></div></div>
+          <div class="skill-bar"><div class="skill-label">Dashboard Design</div><div class="bar"><div class="bar-fill" data-level="85"></div></div></div>
+          <div class="skill-bar"><div class="skill-label">Automation Testing</div><div class="bar"><div class="bar-fill" data-level="75"></div></div></div>
         </div>
       </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>Business Analyst / Developer <br />Kelley School of Business</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>Student Supervisor <br />IU Dining</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>Automation Testing Developer <br />Gilbarco VeederRoot</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.Tech || Computer Science and Engineering || SRM institute of Science and Technology</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>MS || Computer Science || Luddy School of Informatics</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              I'm Akshay, a passionate Business Analyst / Developer. 
-              With a background in Computer Science for almost 7 years, I'm dedicated to sharing my insights and creativity with you.
-               This website is constantly changing and upgrading so if you see an bug please write to me, and I'm excited to connect, inspire, and learn together on this journey.
-            </p>
-          </div>
+    </div>
+  </section>
+
+  <section id="exp">
+    <h2>Experience</h2>
+    <div class="card"><h3>Business Analyst & Developer</h3><p>Designed dashboards, automation, and decision systems using Python, SQL, Power BI, and Excel.</p></div>
+    <div class="card"><h3>Automation Testing Developer – Gilbarco Veeder-Root</h3><p>Automated test suites to improve engineering efficiency.</p></div>
+    <div class="card"><h3>Student Supervisor – Indiana University</h3><p>Managed 60+ staff, improved operational workflow.</p></div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-inner">
+          <h3 class="project-title">Book Easy – Booking System</h3>
+          <p>Python + HTML/CSS scheduling tool for fast appointments.</p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">View</a>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Developer</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SCSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Rivet Styling</h3>
-                  <p>Basics</p>
-                </div>
-              </article>
-                            <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Velocity</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Business Analyst</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PowerBi</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tableau</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SMSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
+      <div class="project-card">
+        <div class="project-inner">
+          <h3 class="project-title">Diabetes ML Model</h3>
+          <p>Structured ML pipeline for prediction with clean preprocessing.</p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">View</a>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Book Easy</h2>
-            <div class="btn-container">
-              
-              <button
-              class="btn btn-color-2 project-btn"
-              onclick="location.href='https://youtu.be/6PnjtXMTEMQ';"
-            >
-              Live Demo
-            </button>
-            </div>
-            <p style="color: black;"> The book easy is an Application built for software Engineering project , I worked on the frontEnd and spearheaded the PowerBi side of it.Watch the youtube video for a better Insight.</p>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.jpeg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">DIABETICS PREDICTION AND CAUSE ANALYSIS IN UNITED STATES</h2>
-            <div class="btn-container">
-              
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='./assets/project-2.pdf'"
-              >
-               Research Paper
-              </button>
-            </div>
-            <p style="color: black;"> This is an Data Mining project where we analysed the diabetic dataset and cameup with the cause analysis, we recieved a standing ovation for this presentation.</p>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">K-means Clustering on MNIST Data set</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='./assets/project3.ipynb'"
-              >
-                Live Demo
-              </button>
-            </div>
-            <p style="color: black;">This is a part of AML class assignment where we used K-means to sort MNIST data set</p>
-          </div>
+      <div class="project-card">
+        <div class="project-inner">
+          <h3 class="project-title">K-Means MNIST Clustering</h3>
+          <p>Unsupervised digit clustering with visualization.</p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">View</a>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:akputh@iu.edu">akputh@iu.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/akputh/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:m.akshay1998@gmail.com">m.akshay1998@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/akputh/" target="_blank" rel="noopener">https://www.linkedin.com/in/akputh/</a></p>
+      <p>GitHub: <a href="https://github.com/akshay-murali" target="_blank" rel="noopener">github.com/akshay-murali</a></p>
+    </div>
+  </section>
+
+  <footer>© 2025 Akshay Puthanmari Murali</footer>
+
+  <script src="main.js"></script>
+</body>
 </html>
