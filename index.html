@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akshay Puthanmari Murali – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+ 
   <nav>
-    <div class="logo" aria-label="Akshay logo Primary">
-      <a href="#" style="text-decoration:none; color:inherit;">ॐ AKSHAY</a>
-    </div>
+ <div class="logo">
+ <a href="#" style="text-decoration:none"> <span class="om">ॐ</span> <span class="name">அக்‌ஷய்</span></a>
+</div>
+
     <div class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -21,7 +26,7 @@
     <div style="display:flex;gap:10px;align-items:center;">
       <div class="mobile-menu-btn" id="menuBtn" aria-label="Open menu" role="button">☰</div>
         <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-         <span class="icon">🌞</span>
+         <span class="icon">🌙</span>
         </button>
     </div>
 
@@ -35,14 +40,13 @@
     <a href="#contact">Contact</a>
   </aside>
 
-  <header>
-    <div class="aura" aria-hidden="true"></div>
-    <img src="assets/CPP.png" class="profile-img" alt="Akshay profile">
-    <h1>Akshay Puthanmari Murali</h1>
-    <p class="typewriter">Business Analyst • Developer • Educator • Systems Builder</p>
-    <p class="motto">Clarity. Precision. Transformation.</p>
-    <a class="download-btn" href="assets/Akshay_CV_8-13-2025.pdf" download>Download Resume</a>
-  </header>
+<header>
+  <div class="aura" aria-hidden="true"></div>
+  <img src="assets/CPP.png" class="profile-img" alt="Akshay profile">
+  <h1>Akshay Puthanmari Murali</h1>
+  <p><span class="typewriter"></span></p>
+  <a class="download-btn" href="assets/Akshay_CV_8-13-2025.pdf" download>Download Resume</a>
+</header>
 
   <section id="about">
     <h2>About Me</h2>
@@ -52,30 +56,128 @@
     </div>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-      <div class="skill-grid">
-        <div>
-          <div class="skill-bar"><div class="skill-label">Python</div><div class="bar"><div class="bar-fill" data-level="92"></div></div></div>
-          <div class="skill-bar"><div class="skill-label">SQL</div><div class="bar"><div class="bar-fill" data-level="88"></div></div></div>
-          <div class="skill-bar"><div class="skill-label">Power BI</div><div class="bar"><div class="bar-fill" data-level="90"></div></div></div>
-        </div>
-        <div>
-          <div class="skill-bar"><div class="skill-label">Excel / Power Query</div><div class="bar"><div class="bar-fill" data-level="95"></div></div></div>
-          <div class="skill-bar"><div class="skill-label">Dashboard Design</div><div class="bar"><div class="bar-fill" data-level="85"></div></div></div>
-          <div class="skill-bar"><div class="skill-label">Automation Testing</div><div class="bar"><div class="bar-fill" data-level="75"></div></div></div>
-        </div>
+<section id="skills">
+  <h2>Technical Skills</h2>
+
+  <div class="skills-grid">
+
+    <!-- Languages -->
+    <div class="skill-box skill-red">
+      <h3><i class="fa-solid fa-terminal"></i> Languages</h3>
+      <div class="tags">
+        <span>Python</span><span>JavaScript</span><span>C#</span>
+        <span>TypeScript</span><span>Java</span><span>C++</span><span>C</span>
+        <span>R</span><span>HTML</span><span>CSS</span>
       </div>
     </div>
-  </section>
 
-  <section id="exp">
-    <h2>Experience</h2>
-    <div class="card"><h3>Business Analyst & Developer</h3><p>Designed dashboards, automation, and decision systems using Python, SQL, Power BI, and Excel.</p></div>
-    <div class="card"><h3>Automation Testing Developer – Gilbarco Veeder-Root</h3><p>Automated test suites to improve engineering efficiency.</p></div>
-    <div class="card"><h3>Student Supervisor – Indiana University</h3><p>Managed 60+ staff, improved operational workflow.</p></div>
-  </section>
+    <!-- Frameworks -->
+    <div class="skill-box skill-cyan">
+      <h3><i class="fa-solid fa-code"></i> Frameworks</h3>
+      <div class="tags">
+        <span>ASP.NET</span><span>React</span><span>Angular</span>
+        <span>SpringBoot</span><span>NestJS</span><span>Express</span>
+        <span>EF Core</span><span>LINQ</span>
+      </div>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-box skill-pink">
+      <h3><i class="fa-solid fa-database"></i> Databases</h3>
+      <div class="tags">
+        <span>PostgreSQL</span><span>MySQL</span><span>SQL Server</span>
+        <span>MongoDB</span><span>Redis</span><span>Neo4J</span>
+        <span>Firebase</span><span>DynamoDB</span>
+      </div>
+    </div>
+
+    <!-- Cloud & DevOps -->
+    <div class="skill-box skill-blue">
+      <h3><i class="fa-solid fa-cloud"></i> Cloud & DevOps</h3>
+      <div class="tags">
+        <span>AWS EC2</span><span>Lambda</span><span>S3</span><span>RDS</span>
+        <span>CloudFront</span><span>Azure</span><span>Docker</span><span>Kubernetes</span>
+      </div>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <div class="skill-box skill-orange">
+      <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Platforms</h3>
+      <div class="tags">
+        <span>Git</span><span>Jira</span><span>Jenkins</span><span>TeamCity</span>
+        <span>Postman</span><span>TensorFlow</span><span>Datadog</span><span>Trello</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+ <section id="exp">
+  <h2>Experience</h2>
+
+  <div class="experience-list">
+
+    <!-- Example 1 -->
+    <div class="experience-card card">
+      <img class="company-logo" src="assets/logo/gvr.webp" alt="Gilbarco Veeder-Root logo">
+      <div class="exp-header">
+        <div class="exp-role">Automation Testing Developer</div>
+        <div class="exp-company">Gilbarco Veeder-Root</div>
+        <p>Automated end-to-end test suites, cut regression time by 35%, and built CI hooks.</p>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-dates">
+          <time datetime="2022-06">Jun 2022</time> – <time datetime="2023-08">Aug 2023</time>
+        </div>
+        <div class="exp-location">Bengaluru, IN · Full-time</div>
+      </div>
+      <div class="exp-tags">
+        <span>Python</span><span>PyTest</span><span>Selenium</span><span>CI/CD</span>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="experience-card card">
+      <img class="company-logo" src="assets/logo/kelley.webp" alt="Indiana University logo">
+      <div class="exp-header">
+        <div class="exp-role">Student Supervisor</div>
+        <div class="exp-company">Indiana University</div>
+        <p>Managed 60+ student staff, optimized operations, and improved scheduling workflow.</p>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-dates">
+          <time datetime="2021-08">Aug 2021</time> – <time datetime="2022-05">May 2022</time>
+        </div>
+        <div class="exp-location">Bloomington, IN · Part-time</div>
+      </div>
+      <div class="exp-tags">
+        <span>Ops</span><span>Leadership</span><span>Scheduling</span>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="experience-card card">
+      <img class="company-logo" src="assets/logo/kelley.webp" alt="Business Analyst logo">
+      <div class="exp-header">
+        <div class="exp-role">Business Analyst & Developer</div>
+        <div class="exp-company">Freelance / Projects</div>
+        <p>Delivered dashboards, data pipelines, and automation in Python, SQL, Power BI, and Excel.</p>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-dates">
+          <time datetime="2023-09">Sep 2023</time> – <time datetime="2025-11">Present</time>
+        </div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-tags">
+        <span>Python</span><span>SQL</span><span>Power BI</span><span>Excel</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <section id="projects">
     <h2>Projects</h2>
@@ -115,6 +217,13 @@
 
   <footer>© 2025 Akshay Puthanmari Murali</footer>
 
-  <script src="main.js"></script>
+<div id="trail-container"></div>
+<script src="main.js" defer></script>
 </body>
 </html>
+
+<script src="main.js" defer></script>
+</body>
+</html>
+
+

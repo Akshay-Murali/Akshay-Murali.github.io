@@ -68,3 +68,92 @@ document.querySelectorAll('.project-card, .card').forEach(card => {
     inner.style.transform = 'rotateX(0) rotateY(0)';
   });
 });
+
+// === NEON MOUSE TRAIL ===
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("trail-container");
+  const maxDots = 30; // controls trail length
+  let dots = [];
+
+  window.addEventListener("mousemove", (e) => {
+    const dot = document.createElement("div");
+    dot.className = "trail-dot";
+    dot.style.left = e.pageX + "px";
+    dot.style.top = e.pageY + "px";
+    container.appendChild(dot);
+    dots.push(dot);
+
+    // Remove extra dots for smooth fade
+    if (dots.length > maxDots) {
+      const old = dots.shift();
+      old.remove();
+    }
+
+    // Auto-remove after fadeOut animation
+    setTimeout(() => {
+      dot.remove();
+      dots = dots.filter(d => d !== dot);
+    }, 800);
+  });
+});
+
+// === Neon Glow Tracking for All Sections ===
+document.querySelectorAll("section").forEach(section => {
+  section.addEventListener("mousemove", e => {
+    const rect = section.getBoundingClientRect();
+    section.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    section.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+
+  section.addEventListener("mouseleave", () => {
+    section.style.removeProperty("--x");
+    section.style.removeProperty("--y");
+  });
+});
+
+// === Multicolor Dynamic Typewriter ===
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.querySelector(".typewriter");
+  if (!el) return;
+
+  const phrases = [
+    { text: "Educator", colorClass: "color-edu" },
+    { text: "Business Analyst", colorClass: "color-analyst" },
+    { text: "Developer", colorClass: "color-dev" }
+      ];
+
+  let i = 0;  // phrase index
+  let j = 0;  // character index
+  let current = "";
+  let isDeleting = false;
+
+  function type() {
+    const phrase = phrases[i];
+    el.className = `typewriter ${phrase.colorClass}`; // apply color dynamically
+
+    if (!isDeleting) {
+      current = phrase.text.slice(0, j++);
+      el.textContent = current;
+      if (j > phrase.text.length) {
+        isDeleting = true;
+        setTimeout(type, 1500); // pause before deleting
+        return;
+      }
+    } else {
+      current = phrase.text.slice(0, j--);
+      el.textContent = current;
+      if (j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length; // next phrase
+      }
+    }
+
+    const speed = isDeleting ? 60 : 100; // adjust typing/deleting speed
+    setTimeout(type, speed);
+  }
+
+  type();
+});
+
+
+

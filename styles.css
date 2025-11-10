@@ -95,13 +95,55 @@ nav {
 }
 
 
-.logo {
+/* .logo {
   font-size: 24px; font-weight: 900; letter-spacing: 1.5px;
   background: linear-gradient(90deg, #1a73e8, #6ab1ff, #0077ff);
   -webkit-background-clip: text; color: transparent;
   text-shadow: 0 0 12px var(--accent-glow);
   user-select: none;
+} */
+
+/* === CUSTOM NAV LOGO === */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+  user-select: none;
 }
+
+/* Glowing saffron OM */
+.logo .om {
+  font-family: "Noto Sans Devanagari", sans-serif;
+  color: #ff9100;
+  text-shadow: 0 0 10px rgba(255, 145, 0, 0.6);
+  animation: omPulse 3s ease-in-out infinite alternate;
+}
+
+/* Gradient AKSHAY text */
+.logo .name {
+  background: linear-gradient(90deg, #00aaff, #00ffcc, #0077ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(0,255,255,0.4);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover .name {
+  transform: scale(1.08);
+  text-shadow:
+    0 0 14px rgba(0,255,255,0.7),
+    0 0 30px rgba(0,170,255,0.5);
+}
+
+@keyframes omPulse {
+  from { text-shadow: 0 0 8px rgba(255,145,0,0.4); }
+  to   { text-shadow: 0 0 18px rgba(255,180,0,0.8); }
+}
+
+
 
 .nav-links a { margin: 0 10px; text-decoration: none; font-weight: 700; color: var(--accent); font-size: 16px; }
 
@@ -151,9 +193,8 @@ header { padding: 140px 20px 80px; text-align: center; position: relative; overf
 
 /* Color variations (we’ll swap these from JS) */
 .color-analyst { color: #00aaff; }     /* Bright Blue */
-.color-dev { color: #00ffc8; }         /* Cyan */
+.color-dev { color: #ffd700; }         /* Gold */
 .color-edu { color: #ff7bff; }         /* Pink */
-.color-sys { color: #ffd700; }         /* Gold */
 
 /* Maintain layout space below */
 header p {
@@ -188,6 +229,79 @@ header p {
 .project-link { display: inline-block; margin-top: 10px; text-decoration: none; font-weight: 800; color: var(--accent); }
 
 footer { text-align: center; padding: 42px 20px; color: #bbb; }
+
+/* === PROJECT CARD GLOW === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+
+/* Base look */
+.project-card {
+  perspective: 1000px;
+  position: relative;
+}
+
+.project-inner {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(0, 150, 255, 0.15);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.1),
+    inset 0 0 8px rgba(0, 150, 255, 0.05);
+}
+
+/* Hover animation */
+.project-inner:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 0 22px rgba(0, 150, 255, 0.35),
+    0 0 50px rgba(0, 200, 255, 0.25),
+    inset 0 0 16px rgba(0, 150, 255, 0.12);
+}
+
+/* Dark mode glow */
+[data-theme="dark"] .project-inner {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 200, 255, 0.18);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.45),
+    inset 0 0 10px rgba(0, 200, 255, 0.08);
+}
+
+[data-theme="dark"] .project-inner:hover {
+  box-shadow:
+    0 0 26px rgba(0, 200, 255, 0.5),
+    0 0 60px rgba(0, 200, 255, 0.25),
+    inset 0 0 18px rgba(0, 200, 255, 0.15);
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* Title and link color adjustments */
+.project-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text-light);
+}
+[data-theme="dark"] .project-title { color: #e8f5ff; }
+
+.project-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.project-link:hover {
+  text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+  color: #00caff;
+}
+
 
 /* DOWNLOAD BUTTON */
 .download-btn { margin-top: 18px; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-weight: 900; display: inline-block; }
@@ -277,3 +391,231 @@ section > * {
   }
 }
 
+/* --- Dark mode: raise interior contrast & glow --- */
+[data-theme="dark"] .card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0, 200, 255, 0.18);
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.45),
+    0 0 20px rgba(0, 200, 255, 0.10) inset;
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.55),
+    0 0 32px rgba(0, 200, 255, 0.18) inset;
+}
+
+/* === PROJECT CARDS — remove glow in light mode === */
+[data-theme="light"] .project-inner {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* flat shadow only */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme="light"] .project-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* simple lift, no blue glow */
+}
+
+
+/* Text legibility inside dark cards */
+[data-theme="dark"] .card h3 { color: #eaf6ff; }
+[data-theme="dark"] .card p  { color: #d7e6ff; opacity: 0.9; }
+
+/* --- Experience section cards --- */
+.experience-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px;
+  background: var(--glass-light);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+[data-theme="dark"] .experience-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0, 200, 255, 0.16);
+}
+
+.company-logo {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;           /* ensures visibility on dark bg */
+  padding: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.exp-role { font-weight: 800; font-size: 18px; }
+.exp-company { font-weight: 700; opacity: 0.9; }
+
+.exp-meta {
+  text-align: right;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.exp-dates {
+  font-weight: 700;
+  color: var(--accent);
+}
+.exp-location {
+  opacity: 0.8;
+}
+
+/* bullets/tags inside card (optional) */
+.exp-tags {
+  grid-column: 2 / 4;
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;
+}
+.exp-tags span {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.06);
+}
+[data-theme="dark"] .exp-tags span {
+  background: rgba(0, 200, 255, 0.12);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  color: #bfefff;
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .experience-card {
+    grid-template-columns: 44px 1fr;
+  }
+  .exp-meta {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 4px;
+  }
+}
+
+/* === CONTACT SECTION VISIBILITY FIX === */
+#contact {
+  text-align: center;
+}
+
+#contact a,
+#contact p,
+#contact span {
+  color: var(--text-light);
+  transition: color 0.25s ease;
+}
+
+/* dark mode brightness */
+[data-theme="dark"] #contact a,
+[data-theme="dark"] #contact p,
+[data-theme="dark"] #contact span {
+  color: #eaf6ff;                /* much brighter */
+}
+
+[data-theme="dark"] #contact a:hover {
+  color: #00c8ff;                /* accent blue on hover */
+  text-shadow: 0 0 6px rgba(0,200,255,0.5);
+}
+
+/* optional: clearer separation */
+#contact .info-line {
+  margin: 8px 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* === SKILLS GRID === */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+/* Base skill card style */
+.skill-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-box h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* tags inside each box */
+.skill-box .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-box .tags span {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* Glow and color themes */
+.skill-red     { border-color: rgba(255, 50, 50, 0.2); }
+.skill-cyan    { border-color: rgba(0, 200, 255, 0.25); }
+.skill-pink    { border-color: rgba(255, 80, 160, 0.25); }
+.skill-blue    { border-color: rgba(0, 160, 255, 0.25); }
+.skill-orange  { border-color: rgba(255, 140, 50, 0.25); }
+
+/* Hover glow by category */
+.skill-red:hover     { box-shadow: 0 0 20px rgba(255, 50, 50, 0.4); }
+.skill-cyan:hover    { box-shadow: 0 0 20px rgba(0, 200, 255, 0.4); }
+.skill-pink:hover    { box-shadow: 0 0 20px rgba(255, 80, 160, 0.4); }
+.skill-blue:hover    { box-shadow: 0 0 20px rgba(0, 160, 255, 0.4); }
+.skill-orange:hover  { box-shadow: 0 0 20px rgba(255, 140, 50, 0.4); }
+
+/* Icon color matches category */
+.skill-red h3 i     { color: #ff5050; }
+.skill-cyan h3 i    { color: #00c8ff; }
+.skill-pink h3 i    { color: #ff66b2; }
+.skill-blue h3 i    { color: #0099ff; }
+.skill-orange h3 i  { color: #ffa040; }
+
+/* Dark mode base background */
+[data-theme="dark"] .skill-box {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Light mode refinement */
+[data-theme="light"] .skill-box {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+[data-theme="light"] .skill-box .tags span {
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.08);
+}
