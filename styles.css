@@ -619,3 +619,152 @@ section > * {
   background: rgba(0,0,0,0.06);
   border: 1px solid rgba(0,0,0,0.08);
 }
+
+/* === CONTACT ICONS - UNIFIED BLUE PULSE === */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.contact-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #00c8ff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.6px solid rgba(0, 200, 255, 0.3);
+  box-shadow:
+    0 0 12px rgba(0, 200, 255, 0.15),
+    inset 0 0 8px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover: pulse + glow */
+.contact-btn:hover {
+  transform: scale(1.12);
+  box-shadow:
+    0 0 22px rgba(0, 200, 255, 0.5),
+    0 0 50px rgba(0, 200, 255, 0.25),
+    inset 0 0 16px rgba(0, 200, 255, 0.12);
+  animation: contactPulse 0.8s ease-out;
+}
+
+/* Pulse ring effect */
+@keyframes contactPulse {
+  0% {
+    box-shadow:
+      0 0 22px rgba(0, 200, 255, 0.5),
+      0 0 50px rgba(0, 200, 255, 0.25),
+      inset 0 0 16px rgba(0, 200, 255, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 220, 255, 0.75),
+      0 0 70px rgba(0, 220, 255, 0.45),
+      inset 0 0 18px rgba(0, 200, 255, 0.2);
+  }
+  100% {
+    box-shadow:
+      0 0 22px rgba(0, 200, 255, 0.5),
+      0 0 50px rgba(0, 200, 255, 0.25),
+      inset 0 0 16px rgba(0, 200, 255, 0.12);
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .contact-btn {
+  background: rgba(255,255,255,0.06);
+  color: #bfefff;
+}
+
+/* Light mode */
+[data-theme="light"] .contact-btn {
+  background: rgba(240,240,255,0.9);
+  color: #007bff;
+  border-color: rgba(0,120,255,0.25);
+  box-shadow:
+    0 0 12px rgba(0,120,255,0.15),
+    inset 0 0 8px rgba(0,120,255,0.08);
+}
+[data-theme="light"] .contact-btn:hover {
+  animation: contactPulse 0.8s ease-out;
+}
+
+.contact-icons {
+  gap: 24px; /* slightly reduced from 28px */
+}
+
+/* Skill subtitles */
+.skill-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .skill-subtitle {
+  color: #d8f3ff;
+}
+
+/* Tags styling improvement */
+.skill-box .tags span {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(0, 180, 255, 0.12);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  color: #bfefff;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.skill-box .tags span:hover {
+  background: rgba(0, 200, 255, 0.22);
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Make all text inside skill boxes fully black in light mode */
+[data-theme="light"] .skill-box,
+[data-theme="light"] .skill-box * {
+  color: #000 !important;
+}
+
+/* Make all project cards equal height */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+/* Fix inner card height */
+.project-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps button at bottom */
+}
+
+/* Lock card height for uniform grid */
+.project-card {
+  height: 260px; /* adjust this number as needed */
+}
+
+/* Make text scroll automatically if it overflows (optional) */
+.project-inner p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* max lines visible */
+  -webkit-box-orient: vertical;
+}
